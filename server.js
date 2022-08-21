@@ -5,6 +5,8 @@ const bodyParser = require("body-parser")
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+const port = process.env.PORT || 8000;
+
 mongoose.connect("mongodb+srv://michellechang02:ileschool1@cluster0.gc7st.mongodb.net/noteDB")
 
 const notesSchema = {
@@ -29,6 +31,6 @@ app.post("/", function(req, res) {
     res.redirect('/');
 })
 
-app.listen(4000, function() {
+app.listen(port, function() {
     console.log("server is running on 4000")
 })
